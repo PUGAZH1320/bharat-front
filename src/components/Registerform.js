@@ -24,7 +24,7 @@ const Registerform = () => {
         console.log("Success - user data inserted");
       });
     console.log(inputs);
-    alert ("User added successfully")
+    alert("User added successfully");
     window.location.reload(true);
   };
   return (

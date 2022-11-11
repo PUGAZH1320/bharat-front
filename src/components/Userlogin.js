@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Userlogin = () => {
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({});
-  const [users, setUsers] = useState({});
+  const [users, setUsers] = useState([]);
 
   const handlechange = (e) => {
     const name = e.target.name;
@@ -21,15 +21,24 @@ const Userlogin = () => {
     axios.get("http://localhost:3001/userlogin", {}).then((response) => {
       setUsers(response.data);
       console.log(response.data);
-      console.log(...users);
+      console.log(users);
+      const username = users.map((user) => user.username);
+      console.log(username);
+      const password = users.map((user) => user.password);
+      console.log(password);
+
+      for (var i = 0; i < username.length; i++) {
+        console.log(username[i]);
+        console.log(password[i]);
+
+        if (
+          inputs.username === username[i] &&
+          inputs.password === password[i]
+        ) {
+          navigate("/userform");
+        }
+      }
     });
-    if (inputs.username === "user1" && inputs.password === "root") {
-      navigate("/userform")
-    }
-    else 
-    {
-      alert ("Incorrect Username or Password")
-    }
   };
 
   return (
@@ -58,10 +67,7 @@ const Userlogin = () => {
               />
             </div>
             <div>
-              <button
-                className="clrbutton message"
-                onClick={handleSubmit}
-              >
+              <button className="clrbutton message" onClick={handleSubmit}>
                 Login
               </button>
             </div>

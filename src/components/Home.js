@@ -22,10 +22,7 @@ const Home = () => {
               Admin Login
             </button>
             <br></br>
-            <button
-              className="clrbutton"
-              onClick={() => navigate("regform")}
-            >
+            <button className="clrbutton" onClick={() => navigate("regform")}>
               New User
             </button>
           </div>

@@ -16,13 +16,11 @@ const Adminlogin = () => {
     e.preventDefault();
     console.log(inputs);
     if (inputs.username === "admin" && inputs.password === "admin") {
-      navigate("/showdata")
+      navigate("/showdata");
+    } else {
+      alert("Incorrect Username or Password");
     }
-    else 
-    {
-      alert ("Incorrect Username or Password")
-    }
-  }
+  };
 
   return (
     <>
@@ -52,10 +50,7 @@ const Adminlogin = () => {
               />
             </div>
             <div>
-              <button
-                className="clrbutton message"
-                onClick={handleSubmit}
-              >
+              <button className="clrbutton message" onClick={handleSubmit}>
                 Login
               </button>
             </div>
